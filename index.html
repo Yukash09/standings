@@ -20,19 +20,20 @@
             --hover-row: #f1f5f9;
         }
 
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: var(--bg-color);
-            color: var(--text-main);
-            margin: 0;
-            padding: 40px 20px;
-            line-height: 1.5;
-        }
-
-        .container {
-            max-width: 1000px;
-            margin: 0 auto;
-        }
+    body {
+        font-family: 'Inter', sans-serif;
+        background-color: var(--bg-color);
+        color: var(--text-main);
+        margin: 0;
+        padding: 40px 20px;
+        /* REMOVED flex - now naturally LEFT aligned */
+    }
+    
+    .container {
+        max-width: 1400px;
+        width: 100%;
+        margin: 0 auto; /* Centers container, table LEFT inside */
+    }
 
         header {
             margin-bottom: 24px;
