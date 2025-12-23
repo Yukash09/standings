@@ -43,7 +43,7 @@ def main():
         return
     
     print("Auto-commit watcher started (Ctrl+C to stop)")
-    print("Updates data.csv every 5 minutes...")
+    print("Updates data.csv every 30 seconds...")
     
     while True:
         try:
@@ -53,7 +53,7 @@ def main():
             if commit_and_push(commit_msg):
                 print("✅ Pushed to GitHub Pages")
             
-            time.sleep(300)  # 5 minutes
+            time.sleep(30)  # 5 minutes
         except KeyboardInterrupt:
             print("\n👋 Stopped.")
             break
