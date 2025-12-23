@@ -248,17 +248,21 @@
                     span.textContent = cellValue.replace('.', ''); // Remove trailing dot
                     td.appendChild(span);
                 }
-                else if (['a', 'b', 'c', 'd', 'e'].includes(cleanHeader) || cleanHeader.length === 1) {
-                    // Format problem scores: "486 (+0)" -> bold score, gray penalty
-                    // Simple regex to split score and penalty
-                    const match = cellValue.match(/^(\d+)\s*(\(.*\))?$/);
+                else if (['a','b','c','d','e','f','g1','g2','h','i','j','k','l']
+                          .includes(cleanHeader)) {
+                
+                    const match = String(cellValue).trim().match(/^(\d+)\s*(\(\+\-?\d+\))?$/);
+                
                     if (match) {
+                        const score = match[1];
+                        const penalty = match[2] || '';
+                
                         td.innerHTML = `
-                            <span class="score-green">${match[1]}</span>
-                            <span class="penalty-red">${match[2] || ''}</span>
+                            <span class="points-green">${score}</span>
+                            ${penalty ? `<span class="penalty-red">${penalty}</span>` : ''}
                         `;
                     } else {
-                        td.innerHTML = `<span class="score-green">${cellValue}</span>`;
+                        td.innerHTML = `<span class="points-green">${cellValue}</span>`;
                     }
                 }
                 else {
