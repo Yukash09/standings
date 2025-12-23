@@ -115,14 +115,18 @@
         }
 
         .penalty {
-            font-size: 0.85em;
+            font-size: 1em;
             color: #94a3b8;
             margin-left: 4px;
         }
 
         .points-green {
-            color: #059669;   /* green */
+            color: #33ba32;   /* green */
             font-weight: 700;
+        }
+
+        .penalty-blue {
+            color: #9a9a9a
         }
     
         .penalty-red {
@@ -261,7 +265,7 @@
                             ${penalty ? `<span class="penalty-red">${penalty}</span>` : ''}
                         `;
                     } else {
-                        td.innerHTML = `<span class="points-green">${cellValue}</span>`;
+                        td.innerHTML = `<span class="penalty-blue">${cellValue}</span>`;
                     }
                 }
                 else {
