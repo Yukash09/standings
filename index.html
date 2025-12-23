@@ -67,10 +67,10 @@
         table {
             width: 100%;
             border-collapse: collapse;
-            text-align: left;
-            min-width: 600px; /* Forces scroll on small screens */
+            text-align: right; /* RIGHT ALIGN ALL COLUMNS */
+            min-width: 700px; /* Tighter fit - adjust if needed */
         }
-
+    
         th {
             background-color: #f8fafc;
             color: var(--text-secondary);
@@ -78,17 +78,19 @@
             font-size: 13px;
             text-transform: uppercase;
             letter-spacing: 0.05em;
-            padding: 16px 24px;
+            padding: 16px 16px; /* Reduced padding */
             border-bottom: 1px solid var(--border-color);
             white-space: nowrap;
+            text-align: right; /* Headers right-aligned too */
         }
-
+    
         td {
-            padding: 16px 24px;
+            padding: 16px 16px; /* Reduced padding for tighter fit */
             border-bottom: 1px solid var(--border-color);
             font-size: 14px;
             color: var(--text-main);
             vertical-align: middle;
+            text-align: right; /* Right align all data */
         }
 
         tr:last-child td {
@@ -115,6 +117,18 @@
             font-size: 0.85em;
             color: #94a3b8;
             margin-left: 4px;
+        }
+
+        .score-green {
+            color: #10b981 !important; /* Green for points */
+            font-weight: 700;
+            font-size: 15px;
+        }
+    
+        .penalty-red {
+            color: #ef4444 !important; /* Red for penalty */
+            font-size: 12px;
+            font-weight: 500;
         }
 
         /* Badge for "Type" */
@@ -238,9 +252,12 @@
                     // Simple regex to split score and penalty
                     const match = cellValue.match(/^(\d+)\s*(\(.*\))?$/);
                     if (match) {
-                        td.innerHTML = `${match[1]} <span class="penalty">${match[2] || ''}</span>`;
+                        td.innerHTML = `
+                            <span class="score-green">${match[1]}</span>
+                            <span class="penalty-red">${match[2] || ''}</span>
+                        `;
                     } else {
-                        td.textContent = cellValue;
+                        td.innerHTML = `<span class="score-green">${cellValue}</span>`;
                     }
                 }
                 else {
